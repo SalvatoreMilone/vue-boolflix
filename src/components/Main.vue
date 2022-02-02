@@ -39,7 +39,7 @@ export default {
       axios
          .get(this.apiURL+this.apiK+this.apiQuery+this.searchQuery)
          .then( (risposta) => {
-            console.log(risposta)
+            console.log(risposta.data.results)
          })
          .catch(function (error) {
             console.log(error)
