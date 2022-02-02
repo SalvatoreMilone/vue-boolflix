@@ -25,7 +25,7 @@
           </svg>
       </div>
 
-      <div class="vote">{{serie[index].vote_count}}</div>
+      <div class="vote">{{serie[index].vote_average}}</div>
     </div>
 
   </div>
