@@ -1,36 +1,29 @@
 <template>
   <div>
-    <InputRicerca 
-    @SearchButton="MandaRicerca"
-    />
 
-    <div>
+   <input type="text" v-model="ricerca">
+   <input type="submit" value="search" @click="$emit('SearchButton', ricerca), ClearSearchButton()">
 
-    </div>
-   
   </div>
 </template>
 
 
 
 <script>
-
-import InputRicerca from './InputRicerca.vue'
-
 export default {
-  name: 'Main',
+  name: 'InputRicerca',
   components:{
-    InputRicerca
+      
   },
 
   data(){
     return{
-      
+      ricerca:"",
     }
   },
   methods:{
-    MandaRicerca(ricerca){
-      console.log(ricerca)
+    ClearSearchButton(){
+      this.ricerca = ""
     }
   }
 }
