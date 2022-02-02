@@ -1,8 +1,12 @@
 <template>
   <div>
 
-   <input type="text" v-model="ricerca">
-   <input type="submit" value="search" @click="$emit('SearchButton', ricerca), ClearSearchButton()">
+   <input type="text"
+   v-model="ricerca"
+   v-on:keyup.enter="$emit('SearchButton', ricerca), ClearSearchButton()">
+
+   <input type="submit" value="search"
+   @click="$emit('SearchButton', ricerca), ClearSearchButton()">
 
   </div>
 </template>

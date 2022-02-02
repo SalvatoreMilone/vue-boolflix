@@ -17,5 +17,7 @@ export default {
 
 <style lang="scss">
 @import './assets/style/global.scss';
-
+div{
+  font-family: 'Roboto', sans-serif;
+}
 </style>
