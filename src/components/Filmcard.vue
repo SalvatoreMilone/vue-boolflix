@@ -95,7 +95,7 @@ export default {
     opacity: 1;
   }
   &:hover > .img-container img{
-    opacity: .3;
+    opacity: .3  ;
     filter: blur(10px);
   }
 }
