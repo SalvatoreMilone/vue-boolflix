@@ -85,12 +85,18 @@ export default {
   border-radius: 10px;
   color: white;
   position: relative;
+  box-shadow: 0px 10px 15px -5px black;
+
+  &:hover{
+    box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, .6);
+  }
 
   &:hover > .content{
     opacity: 1;
   }
   &:hover > .img-container img{
-    opacity: 0;
+    opacity: .3;
+    filter: blur(10px);
   }
 }
 

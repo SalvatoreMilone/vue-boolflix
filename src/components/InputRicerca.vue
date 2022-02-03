@@ -63,7 +63,6 @@ export default {
 
 input{
   border: none;
-  background-color: #777;
   height: 30px;
 }
 
@@ -74,6 +73,7 @@ input:nth-child(1){
   padding: 10px;
   transition: all 300ms;
   margin-right: 5px;
+  background-color: #777;
 
   &:focus{
   background-color: #555 !important;
@@ -85,16 +85,18 @@ input:nth-child(1){
 
 
 input:nth-child(2){
+  background-color: #db1927;
   border-radius:15px;
   width: 30px;
   padding:10px;
+  transition: all 300ms; 
 
   &:hover{
-  box-shadow: 0px 3px 5px 0px rgba(255, 252, 252, .4) inset;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4) inset;
   }
   &:focus{
-  box-shadow: 0px 3px 10px 0px rgba(255, 252, 252, .7) inset;
-   background-color: #888 !important;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7) inset;
+     background-color: #90121a;
   }
 }
 

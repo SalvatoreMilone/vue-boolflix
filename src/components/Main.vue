@@ -85,7 +85,7 @@ export default {
     },
   },  
    mounted() {
-     this.MandaRicercaFilm("vento")
+     this.MandaRicercaFilm("Casa")
   }
 }
 </script>
