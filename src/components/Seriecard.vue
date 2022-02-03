@@ -2,6 +2,9 @@
   <div>
 
     <div class="container">
+      <div>
+        <img :src="imglink + serie[index].poster_path" alt="not found">
+      </div>
       <div class="title">{{serie[index].name}}</div>
       <div class="original-title">{{serie[index].original_name}}</div>
 
@@ -25,7 +28,7 @@
           </svg>
       </div>
 
-      <div class="vote">{{serie[index].vote_average}}</div>
+      <div class="vote">{{Math.round((serie[index].vote_average)/2)}}</div>
     </div>
 
   </div>
@@ -45,7 +48,7 @@ export default {
   },
   data(){
     return{
-      
+      imglink:"https://image.tmdb.org/t/p/w300/",
     }
   },
   methods:{
@@ -61,8 +64,8 @@ export default {
   background-color: #888;
   font-weight:400;
   padding: 10px;
-  width: 200px;
-  min-height: 50px;
+  width: 250px;
+  min-height: 470px;
 }
 
 .original-title{
@@ -70,7 +73,8 @@ export default {
   font-size: .8rem;
   font-weight:300;
 }
-.serie{
-  background-color: red;
+
+img{
+  width: 230px;
 }
 </style>

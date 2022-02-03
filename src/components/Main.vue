@@ -1,5 +1,6 @@
 <template>
   <div>
+    <font-awesome-icon icon="user-secret" />
     <InputRicerca 
     @SearchButton="MandaRicercaFilm"
     />
@@ -10,12 +11,14 @@
           :key="index"
           :film="filmArray"
           :index="index"
+          :elemento="element"
         />
         <Seriecard
         v-for="(element, index) in serieArray"
           :key="index+20"
           :serie="serieArray"
           :index="index"
+          :elemento="element"
         />
       </div>
     </div>
@@ -44,6 +47,7 @@ export default {
     return{
       apiURLMovie:"https://api.themoviedb.org/3/search/movie?api_key=",
       apiURLSerie:"https://api.themoviedb.org/3/search/tv?api_key=",
+      apiAdults:"&include_adult=false",
       apiK:"8445a3b24421e8b2f034ace68840a37f",
       apiQuery:"&query=",
       searchQuery:"",
@@ -56,7 +60,7 @@ export default {
     MandaRicercaFilm(ricerca){
       this.searchQuery=ricerca;
       axios
-         .get(this.apiURLMovie+this.apiK+this.apiQuery+this.searchQuery)
+         .get(this.apiURLMovie+this.apiK+this.apiQuery+this.searchQuery+this.apiAdults)
          .then( (risposta) => {
             this.filmArray = risposta.data.results;
             this.MandaRicercaSerie()
@@ -67,7 +71,7 @@ export default {
     },
     MandaRicercaSerie(){
       axios
-         .get(this.apiURLSerie+this.apiK+this.apiQuery+this.searchQuery)
+         .get(this.apiURLSerie+this.apiK+this.apiQuery+this.searchQuery+this.apiAdults)
          .then( (risposta) => {
             this.serieArray = risposta.data.results;
          })
