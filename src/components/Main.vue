@@ -1,6 +1,5 @@
 <template>
   <div>
-    <font-awesome-icon icon="user-secret" />
     <InputRicerca 
     @SearchButton="MandaRicercaFilm"
     />
@@ -42,25 +41,25 @@ export default {
     Filmcard,
     Seriecard,
   },
-
   data(){
     return{
-      apiURLMovie:"https://api.themoviedb.org/3/search/movie?api_key=",
-      apiURLSerie:"https://api.themoviedb.org/3/search/tv?api_key=",
-      apiAdults:"&include_adult=false",
-      apiK:"8445a3b24421e8b2f034ace68840a37f",
-      apiQuery:"&query=",
+      apiURLMovie:"https://api.themoviedb.org/3/search/movie?",
+      apiURLSerie:"https://api.themoviedb.org/3/search/tv?",
       searchQuery:"",
       filmArray:[],
       serieArray:[],
-      ArraysLength:"",
     }
   },
   methods:{
     MandaRicercaFilm(ricerca){
       this.searchQuery=ricerca;
       axios
-         .get(this.apiURLMovie+this.apiK+this.apiQuery+this.searchQuery+this.apiAdults)
+         .get(this.apiURLMovie, {
+           params:{
+             api_key:"8445a3b24421e8b2f034ace68840a37f",
+             query:this.searchQuery,
+           },
+         })
          .then( (risposta) => {
             this.filmArray = risposta.data.results;
             this.MandaRicercaSerie()
@@ -71,7 +70,12 @@ export default {
     },
     MandaRicercaSerie(){
       axios
-         .get(this.apiURLSerie+this.apiK+this.apiQuery+this.searchQuery+this.apiAdults)
+         .get(this.apiURLSerie, {
+             params:{
+             api_key:"8445a3b24421e8b2f034ace68840a37f",
+             query:this.searchQuery,
+           },
+         })
          .then( (risposta) => {
             this.serieArray = risposta.data.results;
          })
@@ -79,6 +83,9 @@ export default {
             console.log(error)
          })
     },
+  },  
+   mounted() {
+     this.MandaRicercaFilm("vento")
   }
 }
 </script>
@@ -89,7 +96,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items:flex-start ;
 
 }
