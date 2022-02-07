@@ -29,14 +29,20 @@
               </svg>
           </div>
 
-          <div class="vote" :id="voteAbbr+Math.round((serie[index].vote_average)/2)">
+          <div class="vote-container">
 
-          <div v-for="(element, i) in 5" :key="i" class="vote">
-            <svg height="25" width="23" class="star">
-              <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-            </svg>
-          </div>
-                    
+            <div v-for="(element, i) in Math.round((serie[index].vote_average)/2)" :key="i" class="vote true">
+              <svg height="25" width="23" class="star">
+                <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+              </svg>
+            </div>
+
+            <div v-for="(element, i) in (5 - (Math.round((serie[index].vote_average)/2)))" :key="i+5">
+              <svg height="25" width="23" class="star">
+                <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+              </svg>
+            </div>
+
           </div>
 
           <div class="overview">
@@ -71,7 +77,15 @@ export default {
     }
   },
   methods:{
-    
+    getFlag: function(flag){
+      if(flag == "it"){
+        return "it"
+      }else if(flag == "en"){
+        return "en"
+      }else{
+        return "others"
+      }
+    }
   }
 }
 </script>
@@ -132,31 +146,20 @@ export default {
   line-height: 450px;
   border-radius: 5px;
   margin-bottom: 10px;
+
+  img{
+    height: 450px;
+    transition: all 300ms;
+  }
 }
 
-img{
-  height: 450px;
-  transition: all 300ms;
-}
 
-#vote-1 div:nth-child(1){
-  fill: rgb(255, 204, 0);
-}
-#vote-2 div:nth-child(1),#vote-2 div:nth-child(2){
-  fill: rgb(255, 204, 0);
-}
-#vote-3 div:nth-child(1),#vote-3 div:nth-child(2), #vote-3 div:nth-child(3){
-  fill: rgb(255, 204, 0);
-}
-#vote-4 div:nth-child(1),#vote-4 div:nth-child(2), #vote-4 div:nth-child(3), #vote-4 div:nth-child(4){
-  fill: rgb(255, 204, 0);
-}
-#vote-5 div:nth-child(1),#vote-5 div:nth-child(2), #vote-5 div:nth-child(3), #vote-5 div:nth-child(4), #vote-5 div:nth-child(5){
-  fill: rgb(255, 204, 0);
-}
-
-.vote{
+.vote-container{
   display: flex;
   margin: 5px 0;
+}
+
+.vote.true{
+  fill: rgb(255, 204, 0);
 }
 </style>
