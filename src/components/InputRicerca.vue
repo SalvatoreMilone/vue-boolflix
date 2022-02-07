@@ -17,6 +17,10 @@
       </div>
 
     </div>
+      <div class="container-background">
+        <div class="img-overlay"></div>
+        <div class="bg"></div>
+      </div>
   </div>
 </template>
 
@@ -44,21 +48,22 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .container{
-  background-color: black;
-  height: 50px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 100px;
+
 }
 
 .logo, .input-container{
-  height: 50px;
+  height: 70px;
   display: flex;
   align-items: center;
 }
 .logo img{
-  height: 90%;
+  height: 100%;
+
 }
 
 input{
@@ -73,13 +78,12 @@ input:nth-child(1){
   padding: 10px;
   transition: all 300ms;
   margin-right: 5px;
-  background-color: #777;
+  background-color: #171717;
 
   &:focus{
-  background-color: #555 !important;
+  background-color: black !important;
   width: 300px;
-  box-shadow: 0px 3px 5px 0px rgba(255, 252, 252, .4) inset;
-  background-color: #888 !important;
+  box-shadow: 0px 3px 5px 0px #535353 inset, 0px 5px 5px 0px rgba(0, 0, 0, .3);
   }
 }
 
@@ -100,4 +104,28 @@ input:nth-child(2){
   }
 }
 
+.container-background{
+
+  .bg{
+    background-image: url("../assets/img/banner01.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top:0;
+    z-index: -1;
+    width: 100%;
+    height: 588px;
+    opacity: .7;
+  }
+
+  .img-overlay{
+    background: linear-gradient(0deg, rgba(23,23,23,1) 45%, rgba(23,23,23,0.6978992280505952) 70%, rgba(0,0,0,0) 100%);
+    z-index: 0;
+    height: 450px;
+    width: 100%;
+    position: absolute;
+    top: calc(588px - 450px);
+  }
+}
 </style>

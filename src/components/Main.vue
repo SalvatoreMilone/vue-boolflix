@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="top">
     <InputRicerca 
     @SearchButton="MandaRicercaFilm"
     />
@@ -19,8 +19,11 @@
           :index="index"
           :elemento="element"
         />
+
       </div>
     </div>
+
+  <Footer class="Footer"/>
    
   </div>
 </template>
@@ -33,6 +36,7 @@ import axios from "axios"
 import InputRicerca from './InputRicerca.vue'
 import Filmcard from './Filmcard.vue'
 import Seriecard from './Seriecard.vue'
+import Footer from './Footer.vue'
 
 export default {
   name: 'Main',
@@ -40,6 +44,7 @@ export default {
     InputRicerca,
     Filmcard,
     Seriecard,
+    Footer
   },
   data(){
     return{
@@ -83,9 +88,12 @@ export default {
             console.log(error)
          })
     },
+    scrollTop(){
+      console.log("1")
+    }
   },  
    mounted() {
-     this.MandaRicercaFilm("Casa")
+     this.MandaRicercaFilm("Casa");
   }
 }
 </script>
@@ -105,5 +113,22 @@ export default {
   margin: 0 auto;
   width: 92%;
   margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.Footer{
+  position: static;
+  bottom: 0;
+}
+
+.goTop-Button{
+  position: fixed;
+  right: 30px;
+  bottom: 30%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #464646;
+  display: none;
 }
 </style>
