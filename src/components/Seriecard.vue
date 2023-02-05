@@ -172,4 +172,47 @@ export default {
     display: block;
   }
 }
+@media screen and (max-width: 900px) {
+  .container{
+    display: block;
+    margin: 10px;
+    background-color: #333;
+    font-weight:400;
+    width: 150px;
+    height: 250px;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+    box-shadow: 0px 10px 15px -5px black;
+
+    .img-container{
+      width: 150px;
+      height: 250px;
+      overflow: hidden;
+      background-color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 250px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+
+      img{
+        height: 250px;
+        transition: all 300ms;
+      }
+    }
+  }
+    .content{
+    height: 230px;
+    opacity: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: all 300ms;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
 </style>
